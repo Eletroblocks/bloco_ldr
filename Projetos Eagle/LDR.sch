@@ -9148,6 +9148,7 @@ Source: http://optoelectronics.perkinelmer.com/content/Datasheets/DTS_vt200serie
 <schematic_group name="CONNECTIONS"/>
 <schematic_group name="PWM_SIGNAL1"/>
 <schematic_group name="LDR_SIGNAL1"/>
+<schematic_group name="FILTER"/>
 </groups>
 <parts>
 <part name="GND5" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
@@ -9171,6 +9172,9 @@ Source: http://optoelectronics.perkinelmer.com/content/Datasheets/DTS_vt200serie
 <part name="GND4" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="R3" library="eagle-ltspice" library_urn="urn:adsk.eagle:library:217" deviceset="R" device="R2512" package3d_urn="urn:adsk.eagle:package:13304/1" value="470R 1W"/>
 <part name="GND7" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="R5" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805W" package3d_urn="urn:adsk.eagle:package:23537/2" value="1k"/>
+<part name="C3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="100nF"/>
+<part name="GND8" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -9247,6 +9251,17 @@ Source: http://optoelectronics.perkinelmer.com/content/Datasheets/DTS_vt200serie
 </instance>
 <instance part="GND7" gate="1" x="9.371440625" y="168.512" smashed="yes">
 <attribute name="VALUE" x="6.831440625" y="165.772" size="1.778" layer="96"/>
+</instance>
+<instance part="R5" gate="G$1" x="15.974575" y="111.142634375" smashed="yes" grouprefs="FILTER">
+<attribute name="NAME" x="17.368559375" y="109.746728125" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="14.4607375" y="112.5066125" size="1.778" layer="96"/>
+</instance>
+<instance part="C3" gate="G$1" x="22.62181875" y="104.225721875" smashed="yes" rot="R180" grouprefs="FILTER">
+<attribute name="NAME" x="18.30281875" y="107.021721875" size="1.778" layer="95" rot="R270"/>
+<attribute name="VALUE" x="24.82281875" y="108.721721875" size="1.778" layer="96" rot="R270"/>
+</instance>
+<instance part="GND8" gate="1" x="22.47671875" y="96.276721875" smashed="yes" grouprefs="FILTER">
+<attribute name="VALUE" x="19.93671875" y="93.536721875" size="1.778" layer="96"/>
 </instance>
 </instances>
 <busses>
@@ -9331,6 +9346,12 @@ Source: http://optoelectronics.perkinelmer.com/content/Datasheets/DTS_vt200serie
 <wire x1="9.371440625" y1="173.14" x2="21.12" y2="173.14" width="0.1524" layer="91"/>
 <junction x="21.12" y="173.14"/>
 </segment>
+<segment>
+<pinref part="GND8" gate="1" pin="GND"/>
+<pinref part="C3" gate="G$1" pin="1"/>
+<wire x1="22.47671875" y1="98.816721875" x2="22.47671875" y2="101.685721875" width="0.1524" layer="91" grouprefs="FILTER"/>
+<wire x1="22.47671875" y1="101.685721875" x2="22.62181875" y2="101.685721875" width="0.1524" layer="91" grouprefs="FILTER"/>
+</segment>
 </net>
 <net name="SIGNAL_OUT" class="0">
 <segment>
@@ -9340,13 +9361,14 @@ Source: http://optoelectronics.perkinelmer.com/content/Datasheets/DTS_vt200serie
 <label x="67.85" y="265.68" size="1.778" layer="95" xref="yes" grouprefs="CONNECTIONS"/>
 </segment>
 <segment>
-<pinref part="U1" gate="G$1" pin="C1"/>
-<wire x1="51.6" y1="157.9" x2="91.7" y2="157.9" width="0.1524" layer="91" grouprefs="PWM_SIGNAL1"/>
-<label x="91.6" y="158" size="1.778" layer="95" xref="yes" grouprefs="PWM_SIGNAL1"/>
-<pinref part="R3" gate="G$1" pin="1"/>
-<wire x1="80.125315625" y1="160.8940125" x2="80.125315625" y2="157.9" width="0.1524" layer="91"/>
-<wire x1="80.125315625" y1="157.9" x2="51.6" y2="157.9" width="0.1524" layer="91"/>
-<junction x="51.6" y="157.9"/>
+<pinref part="R5" gate="G$1" pin="2"/>
+<pinref part="C3" gate="G$1" pin="2"/>
+<wire x1="21.054575" y1="111.142634375" x2="22.62181875" y2="111.142634375" width="0.1524" layer="91" grouprefs="FILTER"/>
+<wire x1="22.62181875" y1="111.142634375" x2="22.62181875" y2="109.305721875" width="0.1524" layer="91" grouprefs="FILTER"/>
+<wire x1="21.054575" y1="111.142634375" x2="35.78351875" y2="111.142634375" width="0.1524" layer="91" grouprefs="FILTER"/>
+<wire x1="35.78351875" y1="111.142634375" x2="35.78351875" y2="111.0716625" width="0.1524" layer="91" grouprefs="FILTER"/>
+<junction x="21.054575" y="111.142634375" grouprefs="FILTER"/>
+<label x="35.920678125" y="111.310421875" size="1.27" layer="95" xref="yes" grouprefs="FILTER"/>
 </segment>
 </net>
 <net name="VCC" class="0">
@@ -9437,6 +9459,23 @@ Source: http://optoelectronics.perkinelmer.com/content/Datasheets/DTS_vt200serie
 <wire x1="4.3" y1="210.6" x2="4.3" y2="208.38724375" width="0.1524" layer="91" grouprefs="LDR_SIGNAL1"/>
 <wire x1="4.3" y1="208.38724375" x2="4.3169125" y2="208.58724375" width="0.1524" layer="91" grouprefs="LDR_SIGNAL1"/>
 <label x="4.3" y="209.58" size="1.778" layer="95" xref="yes" grouprefs="LDR_SIGNAL1"/>
+</segment>
+</net>
+<net name="PWM" class="0">
+<segment>
+<pinref part="R5" gate="G$1" pin="1"/>
+<wire x1="10.894575" y1="111.142634375" x2="5.948678125" y2="111.142634375" width="0.1524" layer="91" grouprefs="FILTER"/>
+<wire x1="5.948678125" y1="111.142634375" x2="5.948678125" y2="111.048803125" width="0.1524" layer="91" grouprefs="FILTER"/>
+<label x="5.877559375" y="111.178340625" size="1.27" layer="95" rot="R180" xref="yes" grouprefs="FILTER"/>
+</segment>
+<segment>
+<pinref part="U1" gate="G$1" pin="C1"/>
+<wire x1="51.6" y1="157.9" x2="91.7" y2="157.9" width="0.1524" layer="91" grouprefs="PWM_SIGNAL1"/>
+<label x="91.6" y="158" size="1.778" layer="95" xref="yes" grouprefs="PWM_SIGNAL1"/>
+<pinref part="R3" gate="G$1" pin="1"/>
+<wire x1="80.125315625" y1="160.8940125" x2="80.125315625" y2="157.9" width="0.1524" layer="91"/>
+<wire x1="80.125315625" y1="157.9" x2="51.6" y2="157.9" width="0.1524" layer="91"/>
+<junction x="51.6" y="157.9"/>
 </segment>
 </net>
 </nets>
