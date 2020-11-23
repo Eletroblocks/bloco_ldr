@@ -7964,12 +7964,13 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 <library name="Eletroblocks Lib">
 <packages>
 <package name="3CONECTOR">
-<pad name="2" x="0" y="0" drill="0.6"/>
-<pad name="1" x="0" y="2.54" drill="0.6"/>
-<pad name="3" x="0" y="-2.54" drill="0.6"/>
-<hole x="0" y="2.54" drill="0.5"/>
-<hole x="0" y="0" drill="0.5"/>
-<hole x="0" y="-2.54" drill="0.5"/>
+<pad name="2" x="0" y="0" drill="0.75"/>
+<pad name="1" x="0" y="2.54" drill="0.75"/>
+<pad name="3" x="0" y="-2.54" drill="0.75"/>
+<hole x="0" y="2.54" drill="0.75"/>
+<hole x="0" y="0" drill="0.75"/>
+<hole x="0" y="-2.54" drill="0.75"/>
+<text x="-1.27" y="-3.81" size="0.8128" layer="21" font="fixed" rot="R90">&gt;NAME</text>
 </package>
 </packages>
 <symbols>
@@ -7985,7 +7986,24 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="CONECTOR" prefix="J">
+<deviceset name="CONECTOR_MACHO">
+<gates>
+<gate name="G$1" symbol="CONECTOR" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="3CONECTOR">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+<connect gate="G$1" pin="3" pad="3"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="CONECTOR_FEMEA" prefix="J">
 <gates>
 <gate name="G$1" symbol="CONECTOR" x="0" y="0"/>
 </gates>
@@ -9139,8 +9157,8 @@ Source: http://optoelectronics.perkinelmer.com/content/Datasheets/DTS_vt200serie
 <part name="C1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="100nF"/>
 <part name="P+4" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VCC" device=""/>
 <part name="GND2" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="J1" library="Eletroblocks Lib" deviceset="CONECTOR" device="" override_package3d_urn="urn:adsk.eagle:package:22400240/2" override_package_urn="urn:adsk.eagle:footprint:22400241/1"/>
-<part name="J2" library="Eletroblocks Lib" deviceset="CONECTOR" device="" override_package3d_urn="urn:adsk.eagle:package:22400251/2" override_package_urn="urn:adsk.eagle:footprint:22400252/1"/>
+<part name="J1" library="Eletroblocks Lib" deviceset="CONECTOR_MACHO" device="" override_package3d_urn="urn:adsk.eagle:package:22400240/2" override_package_urn="urn:adsk.eagle:footprint:22400241/1" override_locally_modified="yes"/>
+<part name="J2" library="Eletroblocks Lib" deviceset="CONECTOR_FEMEA" device="" override_package3d_urn="urn:adsk.eagle:package:22400251/2" override_package_urn="urn:adsk.eagle:footprint:22400252/1" override_locally_modified="yes"/>
 <part name="U1" library="linear" library_urn="urn:adsk.eagle:library:262" deviceset="TL494*" device="D" package3d_urn="urn:adsk.eagle:package:16423/2" technology="B"/>
 <part name="R1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805W" package3d_urn="urn:adsk.eagle:package:23537/2" value="4K7"/>
 <part name="GND1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
@@ -9149,9 +9167,10 @@ Source: http://optoelectronics.perkinelmer.com/content/Datasheets/DTS_vt200serie
 <part name="R2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805W" package3d_urn="urn:adsk.eagle:package:23537/2" value="3k9"/>
 <part name="C2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="100nF"/>
 <part name="LDR" library="photo-elements" library_urn="urn:adsk.eagle:library:323" deviceset="VT2*" device="" package3d_urn="urn:adsk.eagle:package:22223/1" override_package3d_urn="urn:adsk.eagle:package:22399586/2" override_package_urn="urn:adsk.eagle:footprint:22188/1" technology="0N1"/>
-<part name="R4" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805W" package3d_urn="urn:adsk.eagle:package:23537/2" value="10K"/>
+<part name="R4" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805W" package3d_urn="urn:adsk.eagle:package:23537/2" value="1.6M"/>
 <part name="GND4" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="R3" library="eagle-ltspice" library_urn="urn:adsk.eagle:library:217" deviceset="R" device="R2512" package3d_urn="urn:adsk.eagle:package:13304/1" value="470R 1W"/>
+<part name="GND7" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -9226,6 +9245,9 @@ Source: http://optoelectronics.perkinelmer.com/content/Datasheets/DTS_vt200serie
 <attribute name="NAME" x="78.626715625" y="162.1640125" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="83.427315625" y="162.1640125" size="1.778" layer="96" rot="R90"/>
 </instance>
+<instance part="GND7" gate="1" x="9.371440625" y="168.512" smashed="yes">
+<attribute name="VALUE" x="6.831440625" y="165.772" size="1.778" layer="96"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -9298,6 +9320,17 @@ Source: http://optoelectronics.perkinelmer.com/content/Datasheets/DTS_vt200serie
 <wire x1="4.291440625" y1="196.452" x2="4.291440625" y2="198.42724375" width="0.1524" layer="91" grouprefs="LDR_SIGNAL1"/>
 <wire x1="4.291440625" y1="198.42724375" x2="4.3169125" y2="198.42724375" width="0.1524" layer="91" grouprefs="LDR_SIGNAL1"/>
 </segment>
+<segment>
+<pinref part="U1" gate="G$1" pin="+I1"/>
+<wire x1="21.12" y1="173.14" x2="17.29095" y2="173.14" width="0.1524" layer="91" grouprefs="PWM_SIGNAL1"/>
+<wire x1="17.29095" y1="173.14" x2="17.29095" y2="162.98" width="0.1524" layer="91" grouprefs="PWM_SIGNAL1"/>
+<pinref part="U1" gate="G$1" pin="+I2"/>
+<wire x1="17.29095" y1="162.98" x2="21.12" y2="162.98" width="0.1524" layer="91" grouprefs="PWM_SIGNAL1"/>
+<pinref part="GND7" gate="1" pin="GND"/>
+<wire x1="9.371440625" y1="171.052" x2="9.371440625" y2="173.14" width="0.1524" layer="91"/>
+<wire x1="9.371440625" y1="173.14" x2="21.12" y2="173.14" width="0.1524" layer="91"/>
+<junction x="21.12" y="173.14"/>
+</segment>
 </net>
 <net name="SIGNAL_OUT" class="0">
 <segment>
@@ -9351,15 +9384,6 @@ Source: http://optoelectronics.perkinelmer.com/content/Datasheets/DTS_vt200serie
 <net name="N$11" class="0">
 <segment>
 <wire x1="31.75" y1="265.84" x2="31.84" y2="265.84" width="0.1524" layer="91" grouprefs="CONNECTIONS"/>
-</segment>
-</net>
-<net name="N$1" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="+I1"/>
-<wire x1="21.12" y1="173.14" x2="17.29095" y2="173.14" width="0.1524" layer="91" grouprefs="PWM_SIGNAL1"/>
-<wire x1="17.29095" y1="173.14" x2="17.29095" y2="162.98" width="0.1524" layer="91" grouprefs="PWM_SIGNAL1"/>
-<pinref part="U1" gate="G$1" pin="+I2"/>
-<wire x1="17.29095" y1="162.98" x2="21.12" y2="162.98" width="0.1524" layer="91" grouprefs="PWM_SIGNAL1"/>
 </segment>
 </net>
 <net name="VREF" class="0">
