@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.5.2">
+<eagle version="9.6.2">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -7963,14 +7963,30 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 </library>
 <library name="Eletroblocks Lib">
 <packages>
-<package name="3CONECTOR">
+<package name="FEMALE">
 <pad name="2" x="0" y="0" drill="0.75"/>
 <pad name="1" x="0" y="2.54" drill="0.75"/>
 <pad name="3" x="0" y="-2.54" drill="0.75"/>
 <hole x="0" y="2.54" drill="0.75"/>
 <hole x="0" y="0" drill="0.75"/>
 <hole x="0" y="-2.54" drill="0.75"/>
-<text x="-1.27" y="-3.81" size="0.8128" layer="21" font="fixed" rot="R90">&gt;NAME</text>
+<rectangle x1="-1.27" y1="-3.81" x2="1.27" y2="3.81" layer="22"/>
+<text x="-1.37" y="3.51" size="1.27" layer="22" rot="MR270">FEMALE</text>
+<text x="2.4" y="-2.6" size="1.016" layer="22" rot="R90">&gt;NAME</text>
+</package>
+<package name="MALE">
+<pad name="2" x="0" y="0" drill="0.75"/>
+<pad name="1" x="0" y="2.54" drill="0.75"/>
+<pad name="3" x="0" y="-2.54" drill="0.75"/>
+<hole x="0" y="2.54" drill="0.75"/>
+<hole x="0" y="0" drill="0.75"/>
+<hole x="0" y="-2.54" drill="0.75"/>
+<text x="-1.39" y="2.27" size="1.27" layer="22" rot="MR270">MALE</text>
+<wire x1="-1.25" y1="3.75" x2="-1.25" y2="-3.75" width="0.1524" layer="22"/>
+<wire x1="-1.25" y1="-3.75" x2="1.25" y2="-3.75" width="0.1524" layer="22"/>
+<wire x1="1.25" y1="-3.75" x2="1.25" y2="3.75" width="0.1524" layer="22"/>
+<wire x1="1.25" y1="3.75" x2="-1.25" y2="3.75" width="0.1524" layer="22"/>
+<text x="1.6" y="-2.5" size="1.016" layer="22" rot="MR90">&gt;NAME</text>
 </package>
 </packages>
 <symbols>
@@ -7991,7 +8007,7 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 <gate name="G$1" symbol="CONECTOR" x="0" y="0"/>
 </gates>
 <devices>
-<device name="" package="3CONECTOR">
+<device name="" package="MALE">
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
@@ -8008,7 +8024,7 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 <gate name="G$1" symbol="CONECTOR" x="0" y="0"/>
 </gates>
 <devices>
-<device name="" package="3CONECTOR">
+<device name="" package="FEMALE">
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
@@ -9020,12 +9036,12 @@ Source: http://download.siliconexpert.com/pdfs/2005/02/24/Semi_Ap/2/VSH/Resistor
 </deviceset>
 </devicesets>
 </library>
-<library name="photo-elements" urn="urn:adsk.eagle:library:323">
+<library name="photo-elements">
 <description>&lt;b&gt;Photocells&lt;/b&gt;&lt;p&gt;
 Manufakturer: PerkinElmer Optoelektronics&lt;br&gt;
 www.perkinelmer.com/opto</description>
 <packages>
-<package name="TO46-VT200" urn="urn:adsk.eagle:footprint:22188/1" library_version="2">
+<package name="TO46-VT200" urn="urn:adsk.eagle:footprint:22188/1" locally_modified="yes">
 <description>&lt;b&gt;Photoconductive Cell&lt;/b&gt; VT200 Series&lt;p&gt;
 Source: http://optoelectronics.perkinelmer.com/content/Datasheets/DTS_vt200seriesdatasheet.pdf</description>
 <wire x1="-0.5" y1="2" x2="-0.5" y2="1.5" width="0.1016" layer="21" curve="180"/>
@@ -9049,14 +9065,14 @@ Source: http://optoelectronics.perkinelmer.com/content/Datasheets/DTS_vt200serie
 <wire x1="0.5" y1="2" x2="0.75" y2="2.25" width="0.1016" layer="21" curve="90"/>
 <circle x="0" y="0" radius="2.8" width="0.2032" layer="21"/>
 <circle x="0" y="0" radius="2.35" width="0.2032" layer="21"/>
-<pad name="1" x="-1.27" y="0" drill="0.8" diameter="1.4"/>
-<pad name="2" x="1.27" y="0" drill="0.8" diameter="1.4"/>
+<pad name="1" x="-1.47" y="0" drill="0.8" diameter="1.4"/>
+<pad name="2" x="1.47" y="0" drill="0.8" diameter="1.4"/>
 <text x="-2.25" y="-4.25" size="1.27" layer="25">&gt;NAME</text>
 <text x="-2.75" y="3" size="1.27" layer="27">&gt;VALUE</text>
 </package>
 </packages>
 <packages3d>
-<package3d name="TO46-VT200" urn="urn:adsk.eagle:package:22223/1" type="box" library_version="2">
+<package3d name="TO46-VT200" urn="urn:adsk.eagle:package:22223/1" type="box">
 <description>Photoconductive Cell VT200 Series
 Source: http://optoelectronics.perkinelmer.com/content/Datasheets/DTS_vt200seriesdatasheet.pdf</description>
 <packageinstances>
@@ -9065,7 +9081,7 @@ Source: http://optoelectronics.perkinelmer.com/content/Datasheets/DTS_vt200serie
 </package3d>
 </packages3d>
 <symbols>
-<symbol name="PHOTOCELL" urn="urn:adsk.eagle:symbol:22178/1" library_version="2">
+<symbol name="PHOTOCELL">
 <wire x1="-3.048" y1="2.413" x2="-1.651" y2="1.016" width="0.1524" layer="94"/>
 <wire x1="-3.175" y1="1.27" x2="-1.778" y2="-0.127" width="0.1524" layer="94"/>
 <wire x1="0" y1="-2.54" x2="-1.016" y2="-1.905" width="0.254" layer="94"/>
@@ -9092,7 +9108,7 @@ Source: http://optoelectronics.perkinelmer.com/content/Datasheets/DTS_vt200serie
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="VT2*" urn="urn:adsk.eagle:component:22225/2" prefix="PH" library_version="2">
+<deviceset name="VT2*" prefix="PH">
 <description>&lt;b&gt;Photoconductive Cell&lt;/b&gt; VT200 Series&lt;p&gt;
 Source: http://optoelectronics.perkinelmer.com/content/Datasheets/DTS_vt200seriesdatasheet.pdf</description>
 <gates>
@@ -9167,7 +9183,7 @@ Source: http://optoelectronics.perkinelmer.com/content/Datasheets/DTS_vt200serie
 <part name="GND3" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="R2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805W" package3d_urn="urn:adsk.eagle:package:23537/2" value="3k9"/>
 <part name="C2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="100nF"/>
-<part name="LDR" library="photo-elements" library_urn="urn:adsk.eagle:library:323" deviceset="VT2*" device="" package3d_urn="urn:adsk.eagle:package:22223/1" override_package3d_urn="urn:adsk.eagle:package:22399586/2" override_package_urn="urn:adsk.eagle:footprint:22188/1" technology="0N1"/>
+<part name="LDR" library="photo-elements" deviceset="VT2*" device="" package3d_urn="urn:adsk.eagle:package:22223/1" override_package3d_urn="urn:adsk.eagle:package:22399586/2" override_package_urn="urn:adsk.eagle:footprint:22188/1" override_locally_modified="yes" technology="0N1"/>
 <part name="R4" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805W" package3d_urn="urn:adsk.eagle:package:23537/2" value="1.6M"/>
 <part name="GND4" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="R3" library="eagle-ltspice" library_urn="urn:adsk.eagle:library:217" deviceset="R" device="R2512" package3d_urn="urn:adsk.eagle:package:13304/1" value="470R 1W"/>
